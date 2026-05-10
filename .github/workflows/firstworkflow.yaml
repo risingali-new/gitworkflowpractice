@@ -4,6 +4,14 @@ on:
 
     workflow_dispatch: 
 
+        inputs: 
+
+            my_input:
+
+                type: string
+
+                description: My manual Input
+
     push:
 
         branches:
@@ -39,6 +47,12 @@ jobs:
                 cd scripts
 
                 ./script.sh
+
+                echo "My manual input is ${{ inputs.my_input }}"
+
+                echo "My First Secret is ${{ secrets.TESTSECRET }}"
+
+                echo "My First variable is ${{ vars.FIRSTVARIABLE }}"
 
             
 
